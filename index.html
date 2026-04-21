@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>News Admin</title>
+  <style>
+    body { font-family: Arial; background:#f4f4f4; }
+    .box { background:white; padding:10px; margin:10px; }
+    input,textarea{width:100%;margin:5px 0;padding:8px;}
+    button{padding:8px;background:green;color:white;border:none;}
+    .card{background:white;margin:10px;padding:10px;}
+    .card img{width:100%;}
+  </style>
+</head>
+<body>
+
+<h2>News Upload</h2>
+
+<div class="box">
+  <input id="title" placeholder="Title">
+  <input id="image" placeholder="Image URL">
+  <textarea id="desc" placeholder="Description"></textarea>
+  <button onclick="addPost()">Upload</button>
+</div>
+
+<div id="posts"></div>
+
+<script>
+let posts = [];
+
+function addPost(){
+  let title = document.getElementById("title").value;
+  let image = document.getElementById("image").value;
+  let desc = document.getElementById("desc").value;
+
+  if(!title || !image){
+    alert("Fill all fields");
+    return;
+  }
+
+  posts.unshift({
+    id: Date.now(),
+    title,
+    image,
+    desc
+  });
+
+  render();
+}
+
+function deletePost(id){
+  posts = posts.filter(p => p.id !== id);
+  render();
+}
+
+function render(){
+  let box = document.getElementById("posts");
+  box.innerHTML = "";
+
+  posts.forEach(p=>{
+    box.innerHTML += `
+      <div class="card">
+        <img src="${p.image}">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <button onclick="deletePost(${p.id})">Delete</button>
+      </div>
+    `;
+  });
+}
+
+render();
+</script>
+
+</body>
+</html>
