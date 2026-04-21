@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f4f4f4;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-around;
+  background: black;
+  padding: 10px;
+}
+
+.nav button {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 14px;
+}
+
+.nav .active {
+  color: yellow;
+}
+
+/* CARD */
+.card {
+  background: white;
+  margin: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card-content h3 {
+  margin: 5px 0;
+}
+
+.card-content p {
+  color: gray;
+  font-size: 13px;
+}
