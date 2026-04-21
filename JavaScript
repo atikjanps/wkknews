@@ -1,0 +1,42 @@
+let posts = [];
+
+// ➕ ADD POST
+function addPost(){
+  let title = document.getElementById("title").value;
+  let image = document.getElementById("image").value;
+  let desc = document.getElementById("desc").value;
+
+  posts.unshift({
+    id: Date.now(),
+    title,
+    image,
+    desc
+  });
+
+  render();
+}
+
+// 🗑️ DELETE POST
+function deletePost(id){
+  posts = posts.filter(p => p.id !== id);
+  render();
+}
+
+// 📺 SHOW POSTS
+function render(){
+  let box = document.getElementById("posts");
+  box.innerHTML = "";
+
+  posts.forEach(p=>{
+    box.innerHTML += `
+      <div class="card">
+        <img src="${p.image}">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <button onclick="deletePost(${p.id})">Delete</button>
+      </div>
+    `;
+  });
+}
+
+render();
