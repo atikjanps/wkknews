@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>All News</h2>
+
+<div class="tabs">
+  <button class="active" onclick="showTab('new')">New</button>
+  <button onclick="showTab('major')">Major</button>
+  <button onclick="showTab('chat')">Chat</button>
+</div>
+
+<!-- Upload -->
+<div class="upload-box">
+  <input type="text" id="title" placeholder="Title">
+  <input type="text" id="desc" placeholder="Description">
+  <input type="text" id="img" placeholder="Image URL">
+  <button onclick="addPost()">Post</button>
+</div>
+
+<!-- NEW -->
+<div id="new" class="tab-content active"></div>
+
+<!-- MAJOR (Favorites) -->
+<div id="major" class="tab-content"></div>
+
+<!-- CHAT -->
+<div id="chat" class="tab-content"></div>
+
+<!-- VIDEO SECTION -->
+<h3>Videos</h3>
+<div class="video-box">
+  <input type="text" id="videoLink" placeholder="YouTube Link">
+  <button onclick="addVideo()">Add Video</button>
+  <div id="videos"></div>
+</div>
+
+<a href="about.html">About</a>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
